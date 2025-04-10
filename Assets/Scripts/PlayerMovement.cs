@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,11 +8,10 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private new AudioSource audio;
     private int coletaveisRestantes;
+    public TextMeshProUGUI bananaText;
 
-    public float tempoLimite = 10f; // tempo em segundos
-    private float tempoRestante;
 
-    //public Text tempoText;
+    //public Text textTempo;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
         audio = GetComponent<AudioSource>();
 
         coletaveisRestantes = GameObject.FindGameObjectsWithTag("Coletavel").Length;
-        tempoRestante = tempoLimite;
     }
 
     // Update is called once per frame
@@ -33,19 +31,12 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
         rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
+
+
     }
 
     void Update()
     {
-        // Atualiza o tempo restante
-        tempoRestante -= Time.deltaTime;
-
-        //tempoText.text = "Tempo: " + Mathf.CeilToInt(tempoRestante).ToString();
-
-        if (tempoRestante <= 0f)
-        {
-            SceneManager.LoadScene(3); // Cena de DERROTA (3)
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
 
             coletaveisRestantes--;
 
+            bananaText.text = "Bananas Restantes: " + Mathf.CeilToInt(coletaveisRestantes).ToString();
+
             if (coletaveisRestantes <= 0)
             {
                 // Troca para a cena 2 (tela de vitória)
@@ -64,5 +57,10 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-}
+        else if (other.CompareTag("Inimigo"))
+        {
+            SceneManager.LoadScene(3); // Cena de derrota
+        }
+
+    }
 }
