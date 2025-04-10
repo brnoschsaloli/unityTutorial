@@ -18,10 +18,6 @@
 - ✅ Interface estilizada com menus interativos
 - ✅ Compatível com resolução 960x600
 
-## 📸 Imagens do Jogo
-
-*Coloque aqui algumas screenshots ou gifs do jogo em ação*
-
 ## 🛠️ Tecnologias Utilizadas
 
 - Unity (2D)
