@@ -29,24 +29,6 @@
 - TextMeshPro para UI
 - Sistema de cenas com gerenciamento modular
 
-## 📁 Estrutura
-
-```plaintext
-Assets/
-├── Scripts/
-│   ├── PlayerMovement.cs
-│   ├── GameManager.cs
-│   └── ManageMenuFinal.cs
-├── Sprites/
-│   ├── Backgrounds/
-│   ├── UI/
-│   ├── Macaco.png
-│   └── Banana.png
-├── Audio/
-│   ├── musica_fundo.mp3
-│   └── coletar_banana.wav
-```
-
 ## 🖼️ Créditos e Referências
 
 - 🎨 **Imagens geradas com auxílio do ChatGPT e DALL·E** (OpenAI)
